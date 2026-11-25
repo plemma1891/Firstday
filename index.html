@@ -1,0 +1,1224 @@
+<!DOCTYPE html>
+<html lang="es" class="scroll-smooth">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>First Day — Tu primer empleo certificado con Inteligencia Artificial</title>
+  <!-- Tailwind CSS -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <!-- Google Fonts: Plus Jakarta Sans, Inter & JetBrains Mono -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@500;700&family=Plus+Jakarta+Sans:wght@700;800&display=swap" rel="stylesheet" />
+  <!-- Lucide Icons -->
+  <script src="https://unpkg.com/lucide@latest"></script>
+
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          fontFamily: {
+            sans: ['Inter', 'sans-serif'],
+            display: ['Plus Jakarta Sans', 'sans-serif'],
+            mono: ['JetBrains Mono', 'monospace'],
+          },
+          colors: {
+            eduBlue: '#2563EB',
+            eduBlueDark: '#1D4ED8',
+            eduMint: '#10B981',
+            eduAmber: '#F59E0B',
+            softCream: '#FFFDF8',
+            softSlate: '#F8FAFC',
+          },
+        },
+      },
+    };
+  </script>
+
+  <style>
+    body {
+      background-color: #FFFFFF;
+      color: #0F172A;
+      overflow-x: hidden;
+    }
+
+    /* Patrón sutil tipo cuaderno/campus moderno */
+    .bg-edu-dots {
+      background-image: radial-gradient(#CBD5E1 1px, transparent 1px);
+      background-size: 28px 28px;
+    }
+
+    .edu-card {
+      background: #FFFFFF;
+      border: 1px solid #E2E8F0;
+      box-shadow: 0 4px 20px -4px rgba(15, 23, 42, 0.05);
+      transition: all 0.25s cubic-bezier(0.4, 0, 0.2, 1);
+    }
+
+    .edu-card:hover {
+      border-color: #93C5FD;
+      transform: translateY(-3px);
+      box-shadow: 0 14px 28px -8px rgba(37, 99, 235, 0.12);
+    }
+  </style>
+</head>
+<body class="font-sans antialiased selection:bg-blue-100 selection:text-blue-900">
+
+  <!-- 1. NAVBAR CON LOGO 'FIRST DAY' Y NAVEGACIÓN FLUIDA -->
+  <header class="sticky top-0 z-40 w-full border-b border-slate-200/80 bg-white/90 backdrop-blur-md">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-16 flex items-center justify-between">
+      <!-- Logo First Day -->
+      <a href="#" class="flex items-center gap-2.5 group">
+        <div class="w-10 h-10 rounded-xl bg-gradient-to-br from-blue-600 to-blue-700 flex items-center justify-center text-white shadow-md shadow-blue-600/20 group-hover:scale-105 transition-transform relative">
+          <i data-lucide="graduation-cap" class="w-5 h-5"></i>
+          <span class="w-2.5 h-2.5 rounded-full bg-amber-400 border-2 border-white absolute -top-1 -right-1"></span>
+        </div>
+        <div class="flex items-center gap-1.5">
+          <span class="font-display font-extrabold text-xl tracking-tight text-slate-900">
+            First <span class="text-blue-600">Day</span>
+          </span>
+          <span class="hidden sm:inline-block text-[11px] font-mono font-bold uppercase px-2 py-0.5 rounded-full bg-blue-50 text-blue-700 border border-blue-200">
+            UY
+          </span>
+        </div>
+      </a>
+
+      <!-- Enlaces de Navegación Desktop -->
+      <nav class="hidden lg:flex items-center gap-7 text-sm font-medium text-slate-600">
+        <a href="#como-funciona" class="hover:text-blue-600 transition-colors">Cómo funciona</a>
+        <a href="#simulador" class="hover:text-blue-600 transition-colors flex items-center gap-1.5 font-semibold text-slate-800">
+          <span class="w-2 h-2 rounded-full bg-emerald-500"></span>
+          Certificación IA
+        </a>
+        <a href="#capacitaciones" class="hover:text-blue-600 transition-colors">Capacitaciones</a>
+        <a href="#empresas" class="hover:text-blue-600 transition-colors">Para Empresas</a>
+        <a href="#nosotros" class="hover:text-blue-600 transition-colors">Sobre Nosotros</a>
+      </nav>
+
+      <!-- Botones de Acción -->
+      <div class="flex items-center gap-2.5">
+        <button onclick="openModal('empresa')" class="hidden sm:inline-flex items-center px-3.5 py-2 rounded-xl text-xs font-semibold text-slate-700 bg-slate-100 hover:bg-slate-200/80 border border-slate-200 transition-all">
+          Soy Empresa
+        </button>
+        <button onclick="openModal('estudiante')" class="inline-flex items-center gap-1.5 px-4 py-2.5 rounded-xl text-xs sm:text-sm font-bold text-white bg-blue-600 hover:bg-blue-700 shadow-md shadow-blue-600/20 transition-all">
+          <span>Empezar Gratis</span>
+          <i data-lucide="arrow-right" class="w-4 h-4"></i>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <!-- 2. SECCIÓN HERO ENFOCADA EN EL PRIMER EMPLEO (15 A 29 AÑOS EN URUGUAY) -->
+  <section class="relative pt-14 pb-20 sm:pt-20 sm:pb-28 bg-gradient-to-b from-blue-50/70 via-softCream to-white bg-edu-dots overflow-hidden">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+      <div class="max-w-3xl mx-auto text-center">
+        <!-- Etiqueta Superior -->
+        <div class="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-amber-50 border border-amber-200 text-xs font-semibold text-amber-800 mb-6 shadow-sm">
+          <i data-lucide="sparkles" class="w-3.5 h-3.5 text-amber-500"></i>
+          <span>Para estudiantes y jóvenes de 15 a 29 años en Uruguay · 100% Gratis</span>
+        </div>
+
+        <h1 class="font-display text-4xl sm:text-5xl lg:text-6xl font-extrabold tracking-tight text-slate-900 leading-[1.12] mb-6">
+          Que la falta de experiencia no frene tu <span class="text-blue-600">primer día</span> de trabajo
+        </h1>
+
+        <p class="text-base sm:text-lg text-slate-600 leading-relaxed mb-9 max-w-2xl mx-auto">
+          Sabemos lo frustrante que es mandar currículums y que en todos lados te pidan experiencia previa. En <strong class="text-slate-900 font-semibold">First Day</strong> usamos Inteligencia Artificial para evaluar y certificar lo que realmente sabés hacer —técnico y personal— y conectarte con empresas que buscan talento joven.
+        </p>
+
+        <!-- Botones Principales -->
+        <div class="flex flex-col sm:flex-row items-center justify-center gap-3.5">
+          <a href="#simulador" class="w-full sm:w-auto inline-flex items-center justify-center gap-2 px-6 py-3.5 rounded-xl text-sm font-bold text-white bg-blue-600 hover:bg-blue-700 shadow-lg shadow-blue-600/25 transition-all">
+            <i data-lucide="award" class="w-4 h-4 text-amber-300"></i>
+            Probar Evaluación con IA
+          </a>
+          <a href="#empresas" class="w-full sm:w-auto inline-flex items-center justify-center gap-2 px-6 py-3.5 rounded-xl text-sm font-semibold text-slate-800 bg-white hover:bg-slate-50 border border-slate-300 shadow-sm transition-all">
+            <i data-lucide="building-2" class="w-4 h-4 text-emerald-600"></i>
+            Ver Talento Certificado (Empresas)
+          </a>
+        </div>
+
+        <!-- Tarjetas de Datos Clave -->
+        <div class="mt-14 grid grid-cols-1 sm:grid-cols-3 gap-4 max-w-2xl mx-auto">
+          <div class="bg-white/90 border border-slate-200/90 rounded-2xl p-4 shadow-sm">
+            <div class="text-2xl font-display font-extrabold text-blue-600">15 a 29</div>
+            <div class="text-xs font-medium text-slate-500 mt-0.5">Años · Estudiantes y egresados</div>
+          </div>
+          <div class="bg-white/90 border border-slate-200/90 rounded-2xl p-4 shadow-sm">
+            <div class="text-2xl font-display font-extrabold text-emerald-600">$0 UYU</div>
+            <div class="text-xs font-medium text-slate-500 mt-0.5">Siempre gratis para los jóvenes</div>
+          </div>
+          <div class="bg-white/90 border border-slate-200/90 rounded-2xl p-4 shadow-sm">
+            <div class="text-2xl font-display font-extrabold text-amber-500">IA + Mentores</div>
+            <div class="text-xs font-medium text-slate-500 mt-0.5">Certificación y acompañamiento</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- SECCIÓN: CÓMO FUNCIONA EN 3 PASOS -->
+  <section id="como-funciona" class="py-16 sm:py-24 bg-white border-t border-slate-100">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="text-center max-w-2xl mx-auto mb-14">
+        <span class="text-xs font-mono font-bold uppercase tracking-wider text-blue-600 bg-blue-50 px-3 py-1 rounded-full">Paso a paso</span>
+        <h2 class="font-display text-2xl sm:text-4xl font-extrabold text-slate-900 mt-3">¿Cómo te ayudamos a conseguir tu primer empleo?</h2>
+        <p class="text-slate-600 text-sm sm:text-base mt-3">
+          Cambiamos el clásico "años de experiencia" por demostraciones reales de tus capacidades.
+        </p>
+      </div>
+
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-7">
+        <!-- Paso 1 -->
+        <div class="edu-card rounded-2xl p-7">
+          <div class="flex items-center justify-between mb-5">
+            <div class="w-12 h-12 rounded-2xl bg-blue-100 text-blue-600 flex items-center justify-center">
+              <i data-lucide="cpu" class="w-6 h-6"></i>
+            </div>
+            <span class="font-mono text-xs font-bold text-blue-700 bg-blue-50 px-3 py-1 rounded-full">01 · EVALUACIÓN</span>
+          </div>
+          <h3 class="font-display text-lg font-bold text-slate-900 mb-2">Certificá tus habilidades con IA</h3>
+          <p class="text-sm text-slate-600 leading-relaxed">
+            Resolvés desafíos prácticos según lo que te gusta hacer. Nuestra Inteligencia Artificial evalúa tanto tus conocimientos técnicos como tu forma de comunicarte y resolver problemas.
+          </p>
+        </div>
+
+        <!-- Paso 2 -->
+        <div class="edu-card rounded-2xl p-7">
+          <div class="flex items-center justify-between mb-5">
+            <div class="w-12 h-12 rounded-2xl bg-amber-100 text-amber-600 flex items-center justify-center">
+              <i data-lucide="book-open-check" class="w-6 h-6"></i>
+            </div>
+            <span class="font-mono text-xs font-bold text-amber-800 bg-amber-50 px-3 py-1 rounded-full">02 · FORMACIÓN</span>
+          </div>
+          <h3 class="font-display text-lg font-bold text-slate-900 mb-2">Aprendé con profesionales reales</h3>
+          <p class="text-sm text-slate-600 leading-relaxed">
+            Si querés reforzar algún área, te sumás a capacitaciones prácticas, talleres y asesoramiento mano a mano con profesionales y empresas aliadas.
+          </p>
+        </div>
+
+        <!-- Paso 3 -->
+        <div class="edu-card rounded-2xl p-7">
+          <div class="flex items-center justify-between mb-5">
+            <div class="w-12 h-12 rounded-2xl bg-emerald-100 text-emerald-600 flex items-center justify-center">
+              <i data-lucide="briefcase" class="w-6 h-6"></i>
+            </div>
+            <span class="font-mono text-xs font-bold text-emerald-800 bg-emerald-50 px-3 py-1 rounded-full">03 · TU FIRST DAY</span>
+          </div>
+          <h3 class="font-display text-lg font-bold text-slate-900 mb-2">Conectá con empresas que contratan</h3>
+          <p class="text-sm text-slate-600 leading-relaxed">
+            Las empresas buscan perfiles ya validados por First Day. Tu certificado respalda tu potencial y te lleva directo a entrevistas reales.
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 3. SIMULADOR INTERACTIVO DE EVALUACIÓN Y CERTIFICACIÓN CON IA -->
+  <section id="simulador" class="py-16 sm:py-24 bg-softSlate border-y border-slate-200/80">
+    <div class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="text-center max-w-2xl mx-auto mb-10">
+        <div class="inline-flex items-center gap-2 px-3.5 py-1 rounded-full bg-emerald-100 text-emerald-800 text-xs font-mono font-bold mb-3">
+          <i data-lucide="sparkles" class="w-3.5 h-3.5"></i>
+          DEMO INTERACTIVA · PROBALO AHORA
+        </div>
+        <h2 class="font-display text-2xl sm:text-4xl font-extrabold text-slate-900">Simulador de Certificación First Day</h2>
+        <p class="text-slate-600 text-sm sm:text-base mt-2">
+          Elegí una especialidad, respondé 3 casos prácticos y obtené tu certificado oficial verificado por nuestra IA.
+        </p>
+      </div>
+
+      <!-- Caja del Simulador -->
+      <div class="bg-white rounded-3xl p-6 sm:p-10 border border-slate-200 shadow-xl shadow-slate-200/50">
+        
+        <!-- Paso 1: Selección de Área -->
+        <div id="sim-step-select">
+          <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-4 mb-7 pb-5 border-b border-slate-100">
+            <div>
+              <h3 class="font-display text-lg font-bold text-slate-900">1. Elegí el área que querés validar</h3>
+              <p class="text-xs text-slate-500 mt-0.5">Podés certificar tanto habilidades técnicas como personales.</p>
+            </div>
+            <div class="flex items-center gap-2.5 bg-slate-50 px-3.5 py-2 rounded-xl border border-slate-200">
+              <label for="sim-user-name" class="text-xs font-semibold text-slate-600">Tu nombre:</label>
+              <input id="sim-user-name" type="text" placeholder="Ej: Sofía Rodríguez" value="Mateo Silva"
+                class="bg-transparent text-sm font-semibold text-slate-900 focus:outline-none w-40" />
+            </div>
+          </div>
+
+          <div class="grid grid-cols-1 md:grid-cols-3 gap-5">
+            <!-- Opción 1: Desarrollo Web -->
+            <button onclick="startQuiz('web')" class="text-left p-6 rounded-2xl bg-blue-50/50 hover:bg-blue-50 border-2 border-slate-200 hover:border-blue-500 transition-all group">
+              <div class="w-11 h-11 rounded-xl bg-blue-600 text-white flex items-center justify-center mb-4 shadow-sm group-hover:scale-105 transition-transform">
+                <i data-lucide="code-2" class="w-5 h-5"></i>
+              </div>
+              <h4 class="font-display font-bold text-slate-900 text-base">Desarrollo Web</h4>
+              <p class="text-xs text-slate-600 mt-1.5 leading-relaxed">Lógica frontend, estructura HTML/CSS, rendimiento y resolución de errores.</p>
+              <div class="mt-5 inline-flex items-center gap-1 text-xs font-bold text-blue-600">
+                <span>Comenzar test (3 preg.)</span>
+                <i data-lucide="chevron-right" class="w-4 h-4"></i>
+              </div>
+            </button>
+
+            <!-- Opción 2: Análisis de Datos -->
+            <button onclick="startQuiz('datos')" class="text-left p-6 rounded-2xl bg-emerald-50/50 hover:bg-emerald-50 border-2 border-slate-200 hover:border-emerald-500 transition-all group">
+              <div class="w-11 h-11 rounded-xl bg-emerald-600 text-white flex items-center justify-center mb-4 shadow-sm group-hover:scale-105 transition-transform">
+                <i data-lucide="bar-chart-3" class="w-5 h-5"></i>
+              </div>
+              <h4 class="font-display font-bold text-slate-900 text-base">Análisis de Datos</h4>
+              <p class="text-xs text-slate-600 mt-1.5 leading-relaxed">Limpieza de planillas, métricas clave, criterio estadístico y reportes claros.</p>
+              <div class="mt-5 inline-flex items-center gap-1 text-xs font-bold text-emerald-700">
+                <span>Comenzar test (3 preg.)</span>
+                <i data-lucide="chevron-right" class="w-4 h-4"></i>
+              </div>
+            </button>
+
+            <!-- Opción 3: Habilidades Blandas -->
+            <button onclick="startQuiz('blandas')" class="text-left p-6 rounded-2xl bg-amber-50/50 hover:bg-amber-50 border-2 border-slate-200 hover:border-amber-500 transition-all group">
+              <div class="w-11 h-11 rounded-xl bg-amber-500 text-white flex items-center justify-center mb-4 shadow-sm group-hover:scale-105 transition-transform">
+                <i data-lucide="users" class="w-5 h-5"></i>
+              </div>
+              <h4 class="font-display font-bold text-slate-900 text-base">Habilidades Blandas & Equipo</h4>
+              <p class="text-xs text-slate-600 mt-1.5 leading-relaxed">Comunicación asertiva, trabajo en equipo, empatía y resolución de problemas.</p>
+              <div class="mt-5 inline-flex items-center gap-1 text-xs font-bold text-amber-700">
+                <span>Comenzar test (3 preg.)</span>
+                <i data-lucide="chevron-right" class="w-4 h-4"></i>
+              </div>
+            </button>
+          </div>
+        </div>
+
+        <!-- Paso 2: Preguntas Prácticas -->
+        <div id="sim-step-quiz" class="hidden">
+          <div class="flex items-center justify-between mb-5">
+            <div>
+              <span id="quiz-track-badge" class="text-xs font-mono font-bold uppercase px-3 py-1 rounded-full bg-blue-100 text-blue-700">Área</span>
+              <h3 id="quiz-progress-text" class="text-xs font-semibold text-slate-500 mt-2">Pregunta 1 de 3</h3>
+            </div>
+            <button onclick="resetSimulator()" class="text-xs font-semibold text-slate-500 hover:text-slate-900 flex items-center gap-1 bg-slate-100 px-3 py-1.5 rounded-lg">
+              <i data-lucide="rotate-ccw" class="w-3.5 h-3.5"></i> Cambiar área
+            </button>
+          </div>
+
+          <!-- Barra de Progreso -->
+          <div class="w-full h-2.5 bg-slate-100 rounded-full overflow-hidden mb-7">
+            <div id="quiz-progress-bar" class="h-full bg-gradient-to-r from-blue-600 to-emerald-500 transition-all duration-300" style="width: 33%;"></div>
+          </div>
+
+          <h4 id="quiz-question-text" class="font-display text-lg sm:text-xl font-bold text-slate-900 mb-6 leading-snug">
+            Cargando caso práctico...
+          </h4>
+
+          <div id="quiz-options-container" class="space-y-3">
+            <!-- Opciones generadas por JS -->
+          </div>
+        </div>
+
+        <!-- Paso 3: Procesando IA -->
+        <div id="sim-step-loading" class="hidden py-12 text-center">
+          <div class="w-16 h-16 rounded-2xl bg-blue-100 text-blue-600 flex items-center justify-center mx-auto mb-4 animate-bounce">
+            <i data-lucide="cpu" class="w-8 h-8"></i>
+          </div>
+          <h4 class="font-display text-lg font-bold text-slate-900">La IA de First Day está evaluando tus respuestas...</h4>
+          <p class="text-xs text-slate-500 mt-1.5 font-mono" id="ai-loading-status">Analizando criterio práctico y habilidades...</p>
+        </div>
+
+        <!-- Paso 4: Certificado Oficial First Day -->
+        <div id="sim-step-result" class="hidden">
+          <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 items-center">
+            <!-- Diploma / Certificado Visual -->
+            <div class="lg:col-span-7 rounded-2xl bg-gradient-to-br from-white via-blue-50/40 to-emerald-50/60 border-2 border-emerald-500 p-6 sm:p-8 relative shadow-lg">
+              <!-- Sello superior -->
+              <div class="flex flex-wrap items-center justify-between gap-2 border-b border-slate-200 pb-4 mb-5">
+                <div class="flex items-center gap-2">
+                  <div class="w-8 h-8 rounded-lg bg-blue-600 text-white flex items-center justify-center font-bold">
+                    <i data-lucide="graduation-cap" class="w-4 h-4"></i>
+                  </div>
+                  <div>
+                    <span class="font-display font-extrabold text-sm text-slate-900 block leading-none">First <span class="text-blue-600">Day</span></span>
+                    <span class="font-mono text-[10px] font-bold text-emerald-700 uppercase">Certificado Oficial Verificado</span>
+                  </div>
+                </div>
+                <span id="cert-id" class="font-mono text-xs font-bold px-2.5 py-1 rounded-md bg-slate-100 text-slate-700 border border-slate-200">FD-UY-84920</span>
+              </div>
+
+              <div class="mb-5">
+                <div class="text-xs font-medium text-slate-500">Se certifica que</div>
+                <div id="cert-student-name" class="font-display text-2xl sm:text-3xl font-extrabold text-slate-900 mt-0.5">Mateo Silva</div>
+                <div class="text-xs text-slate-600 mt-1">aprobó satisfactoriamente la evaluación práctica de:</div>
+                <div id="cert-track-name" class="text-base font-bold text-blue-600 mt-0.5">Desarrollo Web Frontend</div>
+              </div>
+
+              <div class="grid grid-cols-3 gap-3 bg-white rounded-xl p-3.5 border border-slate-200 mb-5 shadow-sm">
+                <div>
+                  <div class="text-[11px] font-medium text-slate-500">Puntaje IA</div>
+                  <div id="cert-score" class="text-xl font-extrabold font-mono text-slate-900">95/100</div>
+                </div>
+                <div>
+                  <div class="text-[11px] font-medium text-slate-500">Nivel Validado</div>
+                  <div id="cert-level" class="text-sm font-bold text-blue-600 mt-1">Junior Listo</div>
+                </div>
+                <div>
+                  <div class="text-[11px] font-medium text-slate-500">Estado</div>
+                  <div class="text-xs font-bold text-emerald-600 mt-1.5 flex items-center gap-1">
+                    <i data-lucide="check-circle-2" class="w-3.5 h-3.5"></i> Verificado
+                  </div>
+                </div>
+              </div>
+
+              <p id="cert-ai-feedback" class="text-xs text-slate-600 leading-relaxed bg-emerald-50/70 border border-emerald-200/80 rounded-xl p-3">
+                "Demuestra sólido criterio práctico y capacidad de resolución sin requerir experiencia laboral previa."
+              </p>
+            </div>
+
+            <!-- Acciones post-certificación -->
+            <div class="lg:col-span-5 space-y-4">
+              <div class="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-amber-100 text-amber-800 text-xs font-bold">
+                <i data-lucide="party-popper" class="w-3.5 h-3.5"></i> ¡Listo para postularte!
+              </div>
+              <h4 class="font-display text-xl font-bold text-slate-900">Sumá esta credencial a tu perfil de First Day</h4>
+              <p class="text-sm text-slate-600 leading-relaxed">
+                Las empresas en Uruguay filtran candidatos por estas insignias verificadas. Guardá tu resultado gratis y empezá a recibir oportunidades.
+              </p>
+              <div class="pt-2 space-y-2.5">
+                <button onclick="openModal('estudiante')" class="w-full py-3.5 px-4 rounded-xl bg-emerald-600 hover:bg-emerald-700 text-white font-bold text-sm flex items-center justify-center gap-2 shadow-md shadow-emerald-600/20 transition-all">
+                  <i data-lucide="user-plus" class="w-4 h-4"></i>
+                  Guardar certificado en mi perfil gratis
+                </button>
+                <button onclick="resetSimulator()" class="w-full py-2.5 px-4 rounded-xl bg-slate-100 hover:bg-slate-200 text-slate-700 text-xs font-bold flex items-center justify-center gap-1.5 transition-all">
+                  <i data-lucide="refresh-cw" class="w-3.5 h-3.5"></i>
+                  Evaluar otra habilidad
+                </button>
+              </div>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- 4. SECCIÓN DE CAPACITACIONES Y MENTORÍAS CON PROFESIONALES Y EMPRESAS -->
+  <section id="capacitaciones" class="py-16 sm:py-24 bg-softCream border-b border-slate-200/70">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="flex flex-col md:flex-row md:items-end justify-between gap-6 mb-12">
+        <div class="max-w-2xl">
+          <span class="text-xs font-mono font-bold uppercase tracking-wider text-amber-700 bg-amber-100 px-3 py-1 rounded-full">Acompañamiento Real</span>
+          <h2 class="font-display text-2xl sm:text-4xl font-extrabold text-slate-900 mt-3">Capacitaciones y mentorías con profesionales</h2>
+          <p class="text-slate-600 text-sm sm:text-base mt-2">
+            No te dejamos solo frente a una pantalla. Te preparamos junto a profesionales activos y empresas aliadas para que llegues con confianza a tu primer trabajo.
+          </p>
+        </div>
+        <button onclick="openModal('estudiante')" class="self-start md:self-auto inline-flex items-center gap-2 px-5 py-3 rounded-xl bg-amber-500 hover:bg-amber-600 text-white font-bold text-xs sm:text-sm shadow-md shadow-amber-500/20 transition-all">
+          <i data-lucide="calendar-plus" class="w-4 h-4"></i>
+          Inscribirme gratis a los talleres
+        </button>
+      </div>
+
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+        <!-- Taller 1 -->
+        <div class="edu-card rounded-2xl p-6 flex flex-col justify-between">
+          <div>
+            <div class="flex items-center justify-between mb-4">
+              <span class="px-2.5 py-1 rounded-lg bg-blue-50 text-blue-700 text-xs font-bold">Taller Práctico · Vivo</span>
+              <span class="text-xs font-mono text-slate-400">4 semanas</span>
+            </div>
+            <h3 class="font-display text-lg font-bold text-slate-900">Bootcamp Primer Empleo Tech</h3>
+            <p class="text-xs text-slate-600 mt-2 leading-relaxed">
+              Aprendé a construir proyectos reales desde cero junto a desarrolladores uruguayos y preparate para aprobar la certificación técnica de First Day.
+            </p>
+          </div>
+          <div class="mt-6 pt-4 border-t border-slate-100 flex items-center justify-between text-xs">
+            <span class="font-semibold text-slate-700 flex items-center gap-1.5">
+              <i data-lucide="building" class="w-3.5 h-3.5 text-blue-600"></i> Con empresas tech locales
+            </span>
+            <span class="font-bold text-emerald-600">Gratis</span>
+          </div>
+        </div>
+
+        <!-- Taller 2 -->
+        <div class="edu-card rounded-2xl p-6 flex flex-col justify-between">
+          <div>
+            <div class="flex items-center justify-between mb-4">
+              <span class="px-2.5 py-1 rounded-lg bg-amber-50 text-amber-800 text-xs font-bold">Asesoramiento 1 a 1</span>
+              <span class="text-xs font-mono text-slate-400">Sesiones semanales</span>
+            </div>
+            <h3 class="font-display text-lg font-bold text-slate-900">Simulacro de Entrevistas & CV</h3>
+            <p class="text-xs text-slate-600 mt-2 leading-relaxed">
+              Practicá tu primera entrevista laboral con referentes de Recursos Humanos, recibí devoluciones honestas y aprendé a contar tus fortalezas sin experiencia previa.
+            </p>
+          </div>
+          <div class="mt-6 pt-4 border-t border-slate-100 flex items-center justify-between text-xs">
+            <span class="font-semibold text-slate-700 flex items-center gap-1.5">
+              <i data-lucide="user-check" class="w-3.5 h-3.5 text-amber-600"></i> Mentores de RR.HH.
+            </span>
+            <span class="font-bold text-emerald-600">Gratis</span>
+          </div>
+        </div>
+
+        <!-- Taller 3 -->
+        <div class="edu-card rounded-2xl p-6 flex flex-col justify-between">
+          <div>
+            <div class="flex items-center justify-between mb-4">
+              <span class="px-2.5 py-1 rounded-lg bg-emerald-50 text-emerald-700 text-xs font-bold">Habilidades Personales</span>
+              <span class="text-xs font-mono text-slate-400">Modalidad híbrida</span>
+            </div>
+            <h3 class="font-display text-lg font-bold text-slate-900">Comunicación y Trabajo en Equipo</h3>
+            <p class="text-xs text-slate-600 mt-2 leading-relaxed">
+              Desarrollá las habilidades blandas que más valoran las empresas hoy: organización del tiempo, empatía con clientes y resolución de problemas en equipo.
+            </p>
+          </div>
+          <div class="mt-6 pt-4 border-t border-slate-100 flex items-center justify-between text-xs">
+            <span class="font-semibold text-slate-700 flex items-center gap-1.5">
+              <i data-lucide="sparkles" class="w-3.5 h-3.5 text-emerald-600"></i> Con certificado IA
+            </span>
+            <span class="font-bold text-emerald-600">Gratis</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 5. PORTAL PARA EMPRESAS (FILTRO INTERACTIVO + PLANES B2B) -->
+  <section id="empresas" class="py-16 sm:py-24 bg-white">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <!-- Encabezado -->
+      <div class="flex flex-col lg:flex-row lg:items-end justify-between gap-6 mb-10">
+        <div>
+          <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-blue-50 text-blue-700 text-xs font-mono font-bold mb-2">
+            PORTAL PARA EMPRESAS · MODELO B2B
+          </div>
+          <h2 class="font-display text-2xl sm:text-4xl font-extrabold text-slate-900">Encontrá talento joven ya evaluado</h2>
+          <p class="text-slate-600 text-sm sm:text-base mt-2 max-w-2xl">
+            Para los jóvenes <strong class="text-emerald-600">First Day es 100% gratuito</strong>. Las empresas financian la plataforma suscribiéndose para publicar búsquedas y acceder a candidatos certificados.
+          </p>
+        </div>
+
+        <!-- Selector de Pestañas -->
+        <div class="inline-flex p-1.5 rounded-xl bg-slate-100 border border-slate-200 self-start">
+          <button id="tab-talento" onclick="switchEmpresaTab('talento')" class="px-4 py-2 rounded-lg text-xs font-bold bg-blue-600 text-white shadow-sm transition-all">
+            Explorar Candidatos
+          </button>
+          <button id="tab-planes" onclick="switchEmpresaTab('planes')" class="px-4 py-2 rounded-lg text-xs font-semibold text-slate-600 hover:text-slate-900 transition-all">
+            Planes para Empresas
+          </button>
+        </div>
+      </div>
+
+      <!-- SUB-VISTA A: BUSCADOR INTERACTIVO DE CANDIDATOS -->
+      <div id="empresa-view-talento">
+        <!-- Barra de Filtros -->
+        <div class="bg-slate-50 rounded-2xl p-4 sm:p-5 mb-7 border border-slate-200 grid grid-cols-1 sm:grid-cols-4 gap-4 items-end">
+          <div>
+            <label class="block text-xs font-semibold text-slate-700 mb-1.5">Especialidad Certificada</label>
+            <select id="filter-skill" onchange="renderCandidates()" class="w-full px-3.5 py-2.5 rounded-xl bg-white border border-slate-300 text-sm text-slate-900 focus:outline-none focus:border-blue-600">
+              <option value="all">Todas las áreas</option>
+              <option value="Desarrollo Web">Desarrollo Web</option>
+              <option value="Análisis de Datos">Análisis de Datos</option>
+              <option value="Habilidades Blandas">Habilidades Blandas & Equipo</option>
+            </select>
+          </div>
+
+          <div>
+            <label class="block text-xs font-semibold text-slate-700 mb-1.5">Rango de Edad (15–29)</label>
+            <select id="filter-age" onchange="renderCandidates()" class="w-full px-3.5 py-2.5 rounded-xl bg-white border border-slate-300 text-sm text-slate-900 focus:outline-none focus:border-blue-600">
+              <option value="all">Todas las edades (15–29)</option>
+              <option value="15-19">15 a 19 años (Liceo / UTU)</option>
+              <option value="20-24">20 a 24 años (Universitarios)</option>
+              <option value="25-29">25 a 29 años (Recién egresados)</option>
+            </select>
+          </div>
+
+          <div>
+            <label class="block text-xs font-semibold text-slate-700 mb-1.5">Puntaje Mínimo IA</label>
+            <select id="filter-score" onchange="renderCandidates()" class="w-full px-3.5 py-2.5 rounded-xl bg-white border border-slate-300 text-sm text-slate-900 focus:outline-none focus:border-blue-600">
+              <option value="0">Cualquier puntaje aprobado</option>
+              <option value="88">+88 pts (Destacado)</option>
+              <option value="93">+93 pts (Top 5% IA)</option>
+            </select>
+          </div>
+
+          <div class="flex items-center justify-between sm:justify-end">
+            <span id="candidates-count" class="text-xs font-mono font-bold text-blue-700 bg-blue-50 px-3 py-2 rounded-lg border border-blue-200">
+              Mostrando 6 perfiles
+            </span>
+          </div>
+        </div>
+
+        <!-- Grilla de Candidatos -->
+        <div id="candidates-grid" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+          <!-- Renderizado dinámico por JS -->
+        </div>
+      </div>
+
+      <!-- SUB-VISTA B: PLANES B2B PARA EMPRESAS -->
+      <div id="empresa-view-planes" class="hidden">
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+          <!-- Plan PyME -->
+          <div class="edu-card rounded-2xl p-7 flex flex-col justify-between">
+            <div>
+              <span class="text-xs font-mono font-bold text-slate-500">COMERCIOS Y PYMES</span>
+              <h3 class="font-display text-xl font-bold text-slate-900 mt-1">Plan Primer Paso</h3>
+              <div class="mt-4 flex items-baseline gap-1">
+                <span class="font-display text-3xl font-extrabold text-slate-900">$4.900</span>
+                <span class="text-xs font-medium text-slate-500">UYU / mes</span>
+              </div>
+              <p class="text-xs text-slate-600 mt-2">Ideal para incorporar tus primeros colaboradores jóvenes con respaldo.</p>
+              <ul class="mt-6 space-y-3 text-sm text-slate-700">
+                <li class="flex items-center gap-2"><i data-lucide="check-circle-2" class="w-4 h-4 text-emerald-500 shrink-0"></i> Hasta 3 ofertas laborales activas</li>
+                <li class="flex items-center gap-2"><i data-lucide="check-circle-2" class="w-4 h-4 text-emerald-500 shrink-0"></i> Reportes detallados de evaluación IA</li>
+                <li class="flex items-center gap-2"><i data-lucide="check-circle-2" class="w-4 h-4 text-emerald-500 shrink-0"></i> Contacto directo con 15 candidatos/mes</li>
+              </ul>
+            </div>
+            <button onclick="openModal('empresa', 'Plan Primer Paso')" class="mt-8 w-full py-3 rounded-xl bg-slate-100 hover:bg-slate-200 text-slate-900 text-xs font-bold transition-all">
+              Solicitar acceso empresa
+            </button>
+          </div>
+
+          <!-- Plan Pro (Destacado) -->
+          <div class="bg-white rounded-2xl p-7 border-2 border-blue-600 shadow-xl shadow-blue-600/10 flex flex-col justify-between relative">
+            <span class="absolute -top-3.5 right-6 px-3.5 py-1 rounded-full bg-amber-400 text-slate-950 text-[11px] font-extrabold shadow-sm">
+              MÁS ELEGIDO
+            </span>
+            <div>
+              <span class="text-xs font-mono font-bold text-blue-600">EMPRESAS EN CRECIMIENTO</span>
+              <h3 class="font-display text-xl font-bold text-slate-900 mt-1">Plan Selección Pro</h3>
+              <div class="mt-4 flex items-baseline gap-1">
+                <span class="font-display text-3xl font-extrabold text-slate-900">$11.500</span>
+                <span class="text-xs font-medium text-slate-500">UYU / mes</span>
+              </div>
+              <p class="text-xs text-slate-600 mt-2">Reclutamiento ágil con filtros avanzados y pruebas técnicas a medida.</p>
+              <ul class="mt-6 space-y-3 text-sm text-slate-700">
+                <li class="flex items-center gap-2"><i data-lucide="check-circle-2" class="w-4 h-4 text-blue-600 shrink-0"></i> Publicación de búsquedas ilimitadas</li>
+                <li class="flex items-center gap-2"><i data-lucide="check-circle-2" class="w-4 h-4 text-blue-600 shrink-0"></i> Pruebas prácticas personalizadas con IA</li>
+                <li class="flex items-center gap-2"><i data-lucide="check-circle-2" class="w-4 h-4 text-blue-600 shrink-0"></i> Contacto ilimitado a perfiles certificados</li>
+              </ul>
+            </div>
+            <button onclick="openModal('empresa', 'Plan Selección Pro')" class="mt-8 w-full py-3 rounded-xl bg-blue-600 hover:bg-blue-700 text-white text-xs font-bold shadow-md shadow-blue-600/20 transition-all">
+              Agendar demo con nuestro equipo
+            </button>
+          </div>
+
+          <!-- Plan Partner -->
+          <div class="edu-card rounded-2xl p-7 flex flex-col justify-between">
+            <div>
+              <span class="text-xs font-mono font-bold text-emerald-700">ALIANZA FORMATIVA</span>
+              <h3 class="font-display text-xl font-bold text-slate-900 mt-1">Partner Capacitador</h3>
+              <div class="mt-4 flex items-baseline gap-1">
+                <span class="font-display text-2xl font-extrabold text-slate-900">A medida</span>
+              </div>
+              <p class="text-xs text-slate-600 mt-2">Para empresas e institutos que dictan talleres y contratan directo.</p>
+              <ul class="mt-6 space-y-3 text-sm text-slate-700">
+                <li class="flex items-center gap-2"><i data-lucide="check-circle-2" class="w-4 h-4 text-emerald-500 shrink-0"></i> Talleres y bootcamps con tu marca</li>
+                <li class="flex items-center gap-2"><i data-lucide="check-circle-2" class="w-4 h-4 text-emerald-500 shrink-0"></i> Prioridad sobre egresados destacados</li>
+                <li class="flex items-center gap-2"><i data-lucide="check-circle-2" class="w-4 h-4 text-emerald-500 shrink-0"></i> Trabajo conjunto con consultoras</li>
+              </ul>
+            </div>
+            <button onclick="openModal('empresa', 'Partner Capacitador')" class="mt-8 w-full py-3 rounded-xl bg-slate-100 hover:bg-slate-200 text-slate-900 text-xs font-bold transition-all">
+              Convertirse en socio
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 6. SECCIÓN 'SOBRE NOSOTROS' (FUTUROS ESTUDIANTES DE INGENIERÍA APASIONADOS POR LA TECNOLOGÍA) -->
+  <section id="nosotros" class="py-16 sm:py-24 bg-gradient-to-b from-softSlate to-blue-50/50 border-t border-slate-200/80">
+    <div class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="bg-white rounded-3xl p-7 sm:p-12 border border-slate-200 shadow-lg">
+        <div class="grid grid-cols-1 md:grid-cols-12 gap-8 items-center">
+          <div class="md:col-span-7 space-y-4">
+            <div class="inline-flex items-center gap-2 px-3.5 py-1 rounded-full bg-blue-50 text-blue-700 text-xs font-mono font-bold">
+              <i data-lucide="heart-handshake" class="w-3.5 h-3.5"></i>
+              SOBRE NOSOTROS · URUGUAY
+            </div>
+            <h2 class="font-display text-2xl sm:text-3xl font-extrabold text-slate-900 leading-tight">
+              Creado por jóvenes apasionados por la tecnología que quieren estudiar ingeniería
+            </h2>
+            <p class="text-sm sm:text-base text-slate-600 leading-relaxed">
+              <strong class="text-slate-900">First Day</strong> nació de algo que tenemos en común todo el equipo: <strong class="text-blue-600">nos encanta la tecnología, queremos estudiar ingeniería</strong> y vimos de cerca el mismo problema que viven miles de estudiantes uruguayos.
+            </p>
+            <p class="text-sm text-slate-600 leading-relaxed">
+              Tenés ganas, estudiás y sabés hacer cosas, pero cuando buscás tu primer trabajo te frenan por no tener experiencia previa. Por eso decidimos usar Inteligencia Artificial para construir el puente que nos hubiera gustado tener: un lugar donde tu capacidad valga más que un currículum en blanco.
+            </p>
+          </div>
+
+          <div class="md:col-span-5 space-y-3.5">
+            <div class="p-4 rounded-2xl bg-blue-50/70 border border-blue-100 flex items-start gap-3.5">
+              <div class="w-10 h-10 rounded-xl bg-blue-600 text-white flex items-center justify-center shrink-0">
+                <i data-lucide="cpu" class="w-5 h-5"></i>
+              </div>
+              <div>
+                <h4 class="font-display text-sm font-bold text-slate-900">Vocación por la Ingeniería</h4>
+                <p class="text-xs text-slate-600 mt-1">Aplicamos tecnología real para resolver un problema concreto de nuestra generación.</p>
+              </div>
+            </div>
+
+            <div class="p-4 rounded-2xl bg-emerald-50/70 border border-emerald-100 flex items-start gap-3.5">
+              <div class="w-10 h-10 rounded-xl bg-emerald-600 text-white flex items-center justify-center shrink-0">
+                <i data-lucide="school" class="w-5 h-5"></i>
+              </div>
+              <div>
+                <h4 class="font-display text-sm font-bold text-slate-900">Cerca de liceos, UTU y facultades</h4>
+                <p class="text-xs text-slate-600 mt-1">Llegamos a los estudiantes en redes sociales y en sus propios centros de estudio.</p>
+              </div>
+            </div>
+
+            <div class="p-4 rounded-2xl bg-amber-50/70 border border-amber-100 flex items-start gap-3.5">
+              <div class="w-10 h-10 rounded-xl bg-amber-500 text-white flex items-center justify-center shrink-0">
+                <i data-lucide="handshake" class="w-5 h-5"></i>
+              </div>
+              <div>
+                <h4 class="font-display text-sm font-bold text-slate-900">Red con empresas y mentores</h4>
+                <p class="text-xs text-slate-600 mt-1">Trabajamos junto a profesionales capacitadores y empresas que apuestan al talento joven.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer class="border-t border-slate-200 py-10 bg-white">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex flex-col sm:flex-row items-center justify-between gap-4">
+      <div class="flex items-center gap-2">
+        <div class="w-8 h-8 rounded-lg bg-blue-600 text-white flex items-center justify-center font-bold">
+          <i data-lucide="graduation-cap" class="w-4 h-4"></i>
+        </div>
+        <span class="font-display font-extrabold text-slate-900 text-base">First <span class="text-blue-600">Day</span></span>
+      </div>
+      <p class="text-xs text-slate-500 text-center">
+        Tu primer empleo certificado con Inteligencia Artificial · Jóvenes de 15 a 29 años en Uruguay.
+      </p>
+      <div class="flex items-center gap-4 text-xs font-semibold text-slate-600">
+        <button onclick="openModal('estudiante')" class="hover:text-blue-600 transition-colors">Soy Joven</button>
+        <button onclick="openModal('empresa')" class="hover:text-emerald-600 transition-colors">Soy Empresa</button>
+      </div>
+    </div>
+  </footer>
+
+  <!-- 7. MODALES FUNCIONALES PARA REGISTRO DE ESTUDIANTES Y CONTACTO DE EMPRESAS -->
+  <div id="action-modal" class="fixed inset-0 z-50 hidden items-center justify-center p-4 bg-slate-900/60 backdrop-blur-sm">
+    <div class="bg-white border border-slate-200 rounded-3xl max-w-md w-full p-6 sm:p-8 relative shadow-2xl">
+      <button onclick="closeModal()" class="absolute top-5 right-5 text-slate-400 hover:text-slate-800 p-1.5 rounded-xl bg-slate-100 transition-colors">
+        <i data-lucide="x" class="w-5 h-5"></i>
+      </button>
+
+      <!-- Selector de Modo en el Modal -->
+      <div class="inline-flex p-1 rounded-xl bg-slate-100 border border-slate-200 mb-5">
+        <button id="modal-tab-est" onclick="setModalMode('estudiante')" class="px-3.5 py-1.5 rounded-lg text-xs font-bold bg-blue-600 text-white shadow-sm transition-all">
+          Soy Joven (15–29)
+        </button>
+        <button id="modal-tab-emp" onclick="setModalMode('empresa')" class="px-3.5 py-1.5 rounded-lg text-xs font-semibold text-slate-600 hover:text-slate-900 transition-all">
+          Soy Empresa
+        </button>
+      </div>
+
+      <!-- Formulario -->
+      <form id="modal-form" onsubmit="handleFormSubmit(event)" class="space-y-4">
+        <div>
+          <h3 id="modal-title" class="font-display text-xl font-extrabold text-slate-900">Creá tu perfil gratis en First Day</h3>
+          <p id="modal-subtitle" class="text-xs text-slate-500 mt-1">Validá tus capacidades con IA sin necesidad de experiencia laboral previa.</p>
+        </div>
+
+        <div>
+          <label id="label-name" class="block text-xs font-semibold text-slate-700 mb-1">Nombre completo</label>
+          <input type="text" id="input-name" required placeholder="Ej: Valentina Pérez"
+            class="w-full px-3.5 py-2.5 rounded-xl bg-slate-50 border border-slate-300 text-sm text-slate-900 focus:outline-none focus:border-blue-600 focus:bg-white" />
+        </div>
+
+        <div>
+          <label id="label-extra" class="block text-xs font-semibold text-slate-700 mb-1">Edad (entre 15 y 29 años)</label>
+          <input type="number" id="input-extra" min="15" max="29" required placeholder="Ej: 19"
+            class="w-full px-3.5 py-2.5 rounded-xl bg-slate-50 border border-slate-300 text-sm text-slate-900 focus:outline-none focus:border-blue-600 focus:bg-white" />
+        </div>
+
+        <div>
+          <label class="block text-xs font-semibold text-slate-700 mb-1">Correo electrónico</label>
+          <input type="email" id="input-email" required placeholder="nombre@ejemplo.com.uy"
+            class="w-full px-3.5 py-2.5 rounded-xl bg-slate-50 border border-slate-300 text-sm text-slate-900 focus:outline-none focus:border-blue-600 focus:bg-white" />
+        </div>
+
+        <div>
+          <label id="label-interest" class="block text-xs font-semibold text-slate-700 mb-1">Área principal de interés</label>
+          <select id="input-interest" class="w-full px-3.5 py-2.5 rounded-xl bg-slate-50 border border-slate-300 text-sm text-slate-900 focus:outline-none focus:border-blue-600 focus:bg-white">
+            <option value="Desarrollo Web & Tecnología">Desarrollo Web & Tecnología</option>
+            <option value="Análisis de Datos">Análisis de Datos</option>
+            <option value="Habilidades Blandas & Equipo">Habilidades Blandas & Trabajo en Equipo</option>
+            <option value="Administración & Atención al Cliente">Administración & Atención al Cliente</option>
+          </select>
+        </div>
+
+        <button type="submit" id="modal-submit-btn" class="w-full py-3 rounded-xl bg-blue-600 hover:bg-blue-700 text-white font-bold text-sm shadow-md transition-all">
+          Registrarme Gratis
+        </button>
+      </form>
+
+      <!-- Confirmación de Envío -->
+      <div id="modal-success" class="hidden py-6 text-center space-y-3">
+        <div class="w-14 h-14 rounded-2xl bg-emerald-100 text-emerald-600 flex items-center justify-center mx-auto">
+          <i data-lucide="check-circle-2" class="w-8 h-8"></i>
+        </div>
+        <h4 id="success-title" class="font-display text-lg font-extrabold text-slate-900">¡Registro completado!</h4>
+        <p id="success-message" class="text-xs text-slate-600 leading-relaxed">
+          Ya tenés tu cuenta lista en First Day para rendir evaluaciones con IA y sumarte a las capacitaciones gratuitas.
+        </p>
+        <button onclick="closeModal()" class="mt-3 px-6 py-2.5 rounded-xl bg-slate-900 hover:bg-slate-800 text-white text-xs font-bold">
+          Volver a First Day
+        </button>
+      </div>
+    </div>
+  </div>
+
+  <!-- JAVASCRIPT INTERACTIVO -->
+  <script>
+    lucide.createIcons();
+
+    // ==========================================
+    // 1. SIMULADOR DE EVALUACIÓN Y CERTIFICACIÓN IA
+    // ==========================================
+    const quizDatabase = {
+      web: {
+        title: 'Desarrollo Web Frontend',
+        questions: [
+          {
+            q: 'Una web tarda mucho en cargar desde el celular porque las imágenes son muy pesadas. ¿Qué solución aplicás?',
+            options: [
+              { text: 'Comprimir las imágenes, pasarlas a formato WebP y activar carga diferida (lazy loading).', score: 35 },
+              { text: 'Ocultar las imágenes con display: none en CSS para que no ocupen espacio.', score: 10 },
+              { text: 'Poner un texto más grande arriba para distraer mientras carga.', score: 5 },
+            ],
+          },
+          {
+            q: '¿Por qué conviene usar etiquetas semánticas como <header>, <main> y <article> en lugar de llenar todo de <div>?',
+            options: [
+              { text: 'Mejora la accesibilidad y ayuda a los buscadores a entender la estructura del sitio.', score: 35 },
+              { text: 'Hace que el código JavaScript funcione al doble de velocidad.', score: 10 },
+              { text: 'Es obligatorio para poder cambiar el color de fondo de la página.', score: 5 },
+            ],
+          },
+          {
+            q: 'Estás trabajando en equipo y un botón no responde al hacer clic. ¿Cómo encarás el problema?',
+            options: [
+              { text: 'Abro la Consola del navegador para ver si hay errores de JS y reviso el evento click.', score: 30 },
+              { text: 'Borro todo el archivo y arranco el proyecto de cero.', score: 5 },
+              { text: 'Lo dejo así esperando que otro compañero se dé cuenta.', score: 10 },
+            ],
+          },
+        ],
+      },
+      datos: {
+        title: 'Análisis de Datos',
+        questions: [
+          {
+            q: 'Recibís una planilla con 5.000 ventas y ves nombres de clientes repetidos con distinta mayúscula. ¿Qué hacés primero?',
+            options: [
+              { text: 'Estandarizo el texto (limpieza de datos) y quito duplicados antes de calcular métricas.', score: 35 },
+              { text: 'Armo los gráficos igual porque con 5.000 filas el error no se nota.', score: 10 },
+              { text: 'Borro las primeras 500 filas al azar para achicar la tabla.', score: 5 },
+            ],
+          },
+          {
+            q: 'En un equipo de 10 personas, 9 ganan $30.000 y 1 gerente gana $400.000. ¿Qué dato representa mejor el sueldo típico?',
+            options: [
+              { text: 'La mediana, porque no se distorsiona por un valor extremo muy alto.', score: 35 },
+              { text: 'El promedio simple, porque siempre refleja lo que gana la mayoría.', score: 10 },
+              { text: 'La suma total dividida entre dos.', score: 5 },
+            ],
+          },
+          {
+            q: 'Tenés que mostrarle tus conclusiones a un encargado sin perfil técnico. ¿Cómo presentás el informe?',
+            options: [
+              { text: 'Con gráficos claros, lenguaje sencillo y recomendaciones prácticas para decidir.', score: 30 },
+              { text: 'Mostrando únicamente las fórmulas matemáticas y el código crudo.', score: 10 },
+              { text: 'Mandando una planilla gigante sin títulos ni resumen.', score: 5 },
+            ],
+          },
+        ],
+      },
+      blandas: {
+        title: 'Habilidades Blandas & Trabajo en Equipo',
+        questions: [
+          {
+            q: 'Es tu primera semana de trabajo, te piden una tarea y hay una consigna que no te quedó clara. ¿Qué hacés?',
+            options: [
+              { text: 'Anoto mis dudas puntuales y le pregunto a mi referente a tiempo para hacerlo bien.', score: 35 },
+              { text: 'No digo nada por vergüenza y entrego cualquier cosa a última hora.', score: 5 },
+              { text: 'Dejo la tarea sin hacer esperando que nadie la pida.', score: 5 },
+            ],
+          },
+          {
+            q: 'Un cliente te escribe molesto porque su pedido se demoró. ¿Cuál es la mejor actitud?',
+            options: [
+              { text: 'Escucharlo con respeto, pedir disculpas por la demora y darle una solución o plazo claro.', score: 35 },
+              { text: 'Decirle que no es tu responsabilidad y que reclame en otro lado.', score: 5 },
+              { text: 'Dejar el mensaje en visto hasta que se calme.', score: 5 },
+            ],
+          },
+          {
+            q: 'En un trabajo en equipo hay dos ideas distintas sobre cómo avanzar y se están trancando. ¿Cómo ayudás?',
+            options: [
+              { text: 'Propongo escuchar ambas opciones, dividir tareas claras y acordar una fecha de entrega.', score: 30 },
+              { text: 'Insisto con mi idea hasta que el resto se canse y acepte.', score: 10 },
+              { text: 'Me aparto del grupo hasta el día que haya que entregar.', score: 5 },
+            ],
+          },
+        ],
+      },
+    };
+
+    let currentTrack = null;
+    let currentQuestionIndex = 0;
+    let accumulatedScore = 0;
+
+    function startQuiz(trackKey) {
+      currentTrack = quizDatabase[trackKey];
+      currentQuestionIndex = 0;
+      accumulatedScore = 0;
+
+      document.getElementById('sim-step-select').classList.add('hidden');
+      document.getElementById('sim-step-result').classList.add('hidden');
+      document.getElementById('sim-step-quiz').classList.remove('hidden');
+
+      document.getElementById('quiz-track-badge').textContent = currentTrack.title;
+      renderQuestion();
+    }
+
+    function renderQuestion() {
+      const qObj = currentTrack.questions[currentQuestionIndex];
+      const total = currentTrack.questions.length;
+
+      document.getElementById('quiz-progress-text').textContent = `Pregunta ${currentQuestionIndex + 1} de ${total}`;
+      document.getElementById('quiz-progress-bar').style.width = `${((currentQuestionIndex + 1) / total) * 100}%`;
+      document.getElementById('quiz-question-text').textContent = qObj.q;
+
+      const container = document.getElementById('quiz-options-container');
+      container.innerHTML = '';
+
+      qObj.options.forEach((opt, idx) => {
+        const btn = document.createElement('button');
+        btn.className = 'w-full text-left p-4 rounded-xl bg-slate-50 hover:bg-blue-50/80 border border-slate-200 hover:border-blue-500 text-sm text-slate-800 font-medium transition-all flex items-start gap-3';
+        btn.innerHTML = `
+          <span class="w-6 h-6 rounded-lg bg-white border border-slate-300 text-xs font-mono font-bold text-slate-700 flex items-center justify-center shrink-0 mt-0.5">${String.fromCharCode(65 + idx)}</span>
+          <span>${opt.text}</span>
+        `;
+        btn.onclick = () => handleAnswer(opt.score);
+        container.appendChild(btn);
+      });
+    }
+
+    function handleAnswer(points) {
+      accumulatedScore += points;
+      currentQuestionIndex++;
+
+      if (currentQuestionIndex < currentTrack.questions.length) {
+        renderQuestion();
+      } else {
+        finishQuiz();
+      }
+    }
+
+    function finishQuiz() {
+      document.getElementById('sim-step-quiz').classList.add('hidden');
+      document.getElementById('sim-step-loading').classList.remove('hidden');
+
+      const statuses = [
+        'Validando criterio práctico y toma de decisiones...',
+        'Comparando competencias con perfiles buscados en Uruguay...',
+        'Emitiendo certificado oficial First Day...'
+      ];
+      let step = 0;
+      const interval = setInterval(() => {
+        if (step < statuses.length) {
+          document.getElementById('ai-loading-status').textContent = statuses[step];
+          step++;
+        }
+      }, 450);
+
+      setTimeout(() => {
+        clearInterval(interval);
+        document.getElementById('sim-step-loading').classList.add('hidden');
+        document.getElementById('sim-step-result').classList.remove('hidden');
+
+        const userNameInput = document.getElementById('sim-user-name').value.trim();
+        const studentName = userNameInput || 'Joven Talento UY';
+
+        document.getElementById('cert-student-name').textContent = studentName;
+        document.getElementById('cert-track-name').textContent = currentTrack.title;
+        document.getElementById('cert-score').textContent = `${accumulatedScore}/100`;
+        document.getElementById('cert-id').textContent = `FD-UY-${Math.floor(10000 + Math.random() * 90000)}`;
+
+        let level = 'En Formación';
+        let feedback = '"Buen punto de partida. Te recomendamos sumarte a 2 talleres gratuitos con mentores de First Day para potenciar tu perfil."';
+
+        if (accumulatedScore >= 90) {
+          level = 'Destacado IA';
+          feedback = '"Excelente criterio práctico y resolución de problemas. Perfil altamente recomendado para su primera experiencia laboral."';
+        } else if (accumulatedScore >= 70) {
+          level = 'Junior Listo';
+          feedback = '"Demuestra competencias sólidas para incorporarse a un equipo de trabajo sin requerir experiencia previa."';
+        }
+
+        document.getElementById('cert-level').textContent = level;
+        document.getElementById('cert-ai-feedback').textContent = feedback;
+        lucide.createIcons();
+      }, 1500);
+    }
+
+    function resetSimulator() {
+      document.getElementById('sim-step-quiz').classList.add('hidden');
+      document.getElementById('sim-step-loading').classList.add('hidden');
+      document.getElementById('sim-step-result').classList.add('hidden');
+      document.getElementById('sim-step-select').classList.remove('hidden');
+    }
+
+    // ==========================================
+    // 2. PORTAL EMPRESAS: FILTRO DE CANDIDATOS
+    // ==========================================
+    const mockCandidates = [
+      {
+        name: 'Camila Méndez',
+        age: 19,
+        ageGroup: '15-19',
+        city: 'Montevideo',
+        track: 'Desarrollo Web',
+        score: 95,
+        badge: 'Top 5% IA',
+        education: 'Estudiante Bachillerato Tecnológico UTU',
+        skills: ['HTML/CSS', 'JavaScript', 'Trabajo en equipo']
+      },
+      {
+        name: 'Lucas Pereira',
+        age: 22,
+        ageGroup: '20-24',
+        city: 'Canelones',
+        track: 'Análisis de Datos',
+        score: 91,
+        badge: 'Destacado IA',
+        education: 'Estudiante Ingeniería / Estadística',
+        skills: ['Excel Avanzado', 'SQL', 'Reportes']
+      },
+      {
+        name: 'Valentina Sosa',
+        age: 18,
+        ageGroup: '15-19',
+        city: 'Maldonado',
+        track: 'Habilidades Blandas',
+        score: 89,
+        badge: 'Junior Listo',
+        education: 'Egresada Secundaria · Taller Comunicación',
+        skills: ['Comunicación', 'Empatía', 'Atención']
+      },
+      {
+        name: 'Santiago Acosta',
+        age: 25,
+        ageGroup: '25-29',
+        city: 'Montevideo',
+        track: 'Desarrollo Web',
+        score: 94,
+        badge: 'Top 5% IA',
+        education: 'Analista Programador Recién Egresado',
+        skills: ['Frontend', 'Git', 'Lógica']
+      },
+      {
+        name: 'Martina Duarte',
+        age: 21,
+        ageGroup: '20-24',
+        city: 'Salto',
+        track: 'Habilidades Blandas',
+        score: 93,
+        badge: 'Top 5% IA',
+        education: 'Estudiante Administración',
+        skills: ['Liderazgo', 'Ventas', 'Organización']
+      },
+      {
+        name: 'Joaquín Benítez',
+        age: 26,
+        ageGroup: '25-29',
+        city: 'Montevideo',
+        track: 'Análisis de Datos',
+        score: 88,
+        badge: 'Destacado IA',
+        education: 'Egresado Economía · Certificado First Day',
+        skills: ['PowerBI', 'Limpieza de Datos', 'Métricas']
+      }
+    ];
+
+    function renderCandidates() {
+      const skillFilter = document.getElementById('filter-skill').value;
+      const ageFilter = document.getElementById('filter-age').value;
+      const scoreFilter = parseInt(document.getElementById('filter-score').value, 10);
+
+      const filtered = mockCandidates.filter(c => {
+        const matchSkill = skillFilter === 'all' || c.track === skillFilter;
+        const matchAge = ageFilter === 'all' || c.ageGroup === ageFilter;
+        const matchScore = c.score >= scoreFilter;
+        return matchSkill && matchAge && matchScore;
+      });
+
+      document.getElementById('candidates-count').textContent = `Mostrando ${filtered.length} ${filtered.length === 1 ? 'perfil' : 'perfiles'}`;
+      const grid = document.getElementById('candidates-grid');
+      grid.innerHTML = '';
+
+      if (filtered.length === 0) {
+        grid.innerHTML = `
+          <div class="col-span-full text-center py-10 bg-slate-50 rounded-2xl border border-slate-200">
+            <p class="text-sm text-slate-600">No hay candidatos con esa combinación de filtros. Probá ampliar el rango.</p>
+          </div>
+        `;
+        return;
+      }
+
+      filtered.forEach(c => {
+        const card = document.createElement('div');
+        card.className = 'edu-card rounded-2xl p-6 flex flex-col justify-between';
+        card.innerHTML = `
+          <div>
+            <div class="flex items-start justify-between gap-2 mb-3">
+              <div>
+                <h4 class="font-display font-bold text-slate-900 text-base">${c.name}</h4>
+                <p class="text-xs text-slate-500">${c.age} años · ${c.city}</p>
+              </div>
+              <span class="px-2.5 py-1 rounded-lg bg-emerald-50 border border-emerald-200 text-emerald-700 font-mono text-xs font-bold">
+                ${c.score} pts IA
+              </span>
+            </div>
+
+            <div class="inline-flex items-center gap-1.5 text-xs font-bold text-blue-700 bg-blue-50 px-2.5 py-1 rounded-md mb-3">
+              <i data-lucide="award" class="w-3.5 h-3.5"></i>
+              ${c.track} · ${c.badge}
+            </div>
+
+            <p class="text-xs text-slate-600 mb-3">${c.education}</p>
+
+            <div class="flex flex-wrap gap-1.5 mb-5">
+              ${c.skills.map(s => `<span class="text-[11px] font-medium px-2.5 py-0.5 rounded-md bg-slate-100 text-slate-700">${s}</span>`).join('')}
+            </div>
+          </div>
+
+          <button onclick="openModal('empresa', 'Entrevistar a ${c.name}')" class="w-full py-2.5 rounded-xl bg-blue-50 hover:bg-blue-600 text-blue-700 hover:text-white border border-blue-200 hover:border-blue-600 text-xs font-bold transition-all flex items-center justify-center gap-1.5">
+            <i data-lucide="calendar" class="w-3.5 h-3.5"></i>
+            Solicitar entrevista
+          </button>
+        `;
+        grid.appendChild(card);
+      });
+
+      lucide.createIcons();
+    }
+
+    function switchEmpresaTab(tab) {
+      const btnTalento = document.getElementById('tab-talento');
+      const btnPlanes = document.getElementById('tab-planes');
+      const viewTalento = document.getElementById('empresa-view-talento');
+      const viewPlanes = document.getElementById('empresa-view-planes');
+
+      if (tab === 'talento') {
+        btnTalento.className = 'px-4 py-2 rounded-lg text-xs font-bold bg-blue-600 text-white shadow-sm transition-all';
+        btnPlanes.className = 'px-4 py-2 rounded-lg text-xs font-semibold text-slate-600 hover:text-slate-900 transition-all';
+        viewTalento.classList.remove('hidden');
+        viewPlanes.classList.add('hidden');
+      } else {
+        btnPlanes.className = 'px-4 py-2 rounded-lg text-xs font-bold bg-blue-600 text-white shadow-sm transition-all';
+        btnTalento.className = 'px-4 py-2 rounded-lg text-xs font-semibold text-slate-600 hover:text-slate-900 transition-all';
+        viewPlanes.classList.remove('hidden');
+        viewTalento.classList.add('hidden');
+      }
+    }
+
+    renderCandidates();
+
+    // ==========================================
+    // 3. MODALES DE REGISTRO Y CONTACTO EMPRESAS
+    // ==========================================
+    let currentModalMode = 'estudiante';
+
+    function openModal(mode = 'estudiante', contextDetail = '') {
+      const modal = document.getElementById('action-modal');
+      modal.classList.remove('hidden');
+      modal.classList.add('flex');
+
+      document.getElementById('modal-form').classList.remove('hidden');
+      document.getElementById('modal-success').classList.add('hidden');
+
+      setModalMode(mode, contextDetail);
+    }
+
+    function closeModal() {
+      const modal = document.getElementById('action-modal');
+      modal.classList.add('hidden');
+      modal.classList.remove('flex');
+    }
+
+    function setModalMode(mode, contextDetail = '') {
+      currentModalMode = mode;
+      const tabEst = document.getElementById('modal-tab-est');
+      const tabEmp = document.getElementById('modal-tab-emp');
+
+      const title = document.getElementById('modal-title');
+      const subtitle = document.getElementById('modal-subtitle');
+      const labelName = document.getElementById('label-name');
+      const inputName = document.getElementById('input-name');
+      const labelExtra = document.getElementById('label-extra');
+      const inputExtra = document.getElementById('input-extra');
+      const labelInterest = document.getElementById('label-interest');
+      const submitBtn = document.getElementById('modal-submit-btn');
+
+      if (mode === 'estudiante') {
+        tabEst.className = 'px-3.5 py-1.5 rounded-lg text-xs font-bold bg-blue-600 text-white shadow-sm transition-all';
+        tabEmp.className = 'px-3.5 py-1.5 rounded-lg text-xs font-semibold text-slate-600 hover:text-slate-900 transition-all';
+
+        title.textContent = 'Creá tu perfil gratis en First Day';
+        subtitle.textContent = 'Validá tus capacidades con IA sin necesidad de experiencia laboral previa.';
+        labelName.textContent = 'Tu nombre completo';
+        inputName.placeholder = 'Ej: Sofía Rodríguez';
+        labelExtra.textContent = 'Tu edad (15 a 29 años)';
+        inputExtra.type = 'number';
+        inputExtra.min = '15';
+        inputExtra.max = '29';
+        inputExtra.placeholder = 'Ej: 20';
+        inputExtra.value = '';
+        labelInterest.textContent = 'Área en la que querés certificarte';
+        submitBtn.textContent = 'Crear mi perfil gratuito';
+        submitBtn.className = 'w-full py-3 rounded-xl bg-blue-600 hover:bg-blue-700 text-white font-bold text-sm shadow-md transition-all';
+      } else {
+        tabEmp.className = 'px-3.5 py-1.5 rounded-lg text-xs font-bold bg-emerald-600 text-white shadow-sm transition-all';
+        tabEst.className = 'px-3.5 py-1.5 rounded-lg text-xs font-semibold text-slate-600 hover:text-slate-900 transition-all';
+
+        title.textContent = contextDetail ? `Empresa: ${contextDetail}` : 'Acceso para Empresas';
+        subtitle.textContent = 'Encontrá jóvenes pre-evaluados con IA y ahorrá tiempo en selección.';
+        labelName.textContent = 'Nombre de contacto';
+        inputName.placeholder = 'Ej: Martín Gómez (RR.HH.)';
+        labelExtra.textContent = 'Nombre de la Empresa';
+        inputExtra.type = 'text';
+        inputExtra.removeAttribute('min');
+        inputExtra.removeAttribute('max');
+        inputExtra.placeholder = 'Ej: TechSur Uruguay S.A.';
+        inputExtra.value = '';
+        labelInterest.textContent = 'Perfil que buscás incorporar';
+        submitBtn.textContent = 'Solicitar acceso y demo';
+        submitBtn.className = 'w-full py-3 rounded-xl bg-emerald-600 hover:bg-emerald-700 text-white font-bold text-sm shadow-md transition-all';
+      }
+    }
+
+    function handleFormSubmit(e) {
+      e.preventDefault();
+      const name = document.getElementById('input-name').value.trim();
+
+      document.getElementById('modal-form').classList.add('hidden');
+      document.getElementById('modal-success').classList.remove('hidden');
+
+      if (currentModalMode === 'estudiante') {
+        document.getElementById('success-title').textContent = `¡Bienvenido/a a First Day, ${name}!`;
+        document.getElementById('success-message').textContent =
+          'Tu cuenta gratuita fue creada. Ya podés completar las evaluaciones IA y anotarte a los talleres con profesionales.';
+      } else {
+        document.getElementById('success-title').textContent = `¡Solicitud recibida, ${name}!`;
+        document.getElementById('success-message').textContent =
+          'Nuestro equipo se pondrá en contacto hoy mismo para activar tu cuenta empresa y darte acceso al buscador de talento certificado.';
+      }
+    }
+  </script>
+</body>
+</html>
